@@ -1476,7 +1476,13 @@ void CFlowOutput::SetVolumeOutputFieldsScalarMisc(const CConfig* config) {
   if (config->GetKind_HybridRANSLES() != NO_HYBRIDRANSLES) {
     AddVolumeOutput("DES_LENGTHSCALE", "DES_LengthScale", "DDES", "DES length scale value");
     AddVolumeOutput("WALL_DISTANCE", "Wall_Distance", "DDES", "Wall distance value");
+  if( config->GetKind_HybridRANSLES()==SA_EDDES) {
+    AddVolumeOutput("VTM", "vtm", "DDES", "vortexTiltingMeasure");
+    AddVolumeOutput("FKH", "fkh", "DDES", "fkh_VTM");
   }
+  
+  }
+  
 
   if (config->GetViscous()) {
     if (nDim == 3) {
@@ -1575,8 +1581,11 @@ void CFlowOutput::LoadVolumeDataScalar(const CConfig* config, const CSolver* con
   if (config->GetKind_HybridRANSLES() != NO_HYBRIDRANSLES) {
     SetVolumeOutputValue("DES_LENGTHSCALE", iPoint, Node_Flow->GetDES_LengthScale(iPoint));
     SetVolumeOutputValue("WALL_DISTANCE", iPoint, Node_Geo->GetWall_Distance(iPoint));
+    if( config->GetKind_HybridRANSLES()==SA_EDDES) {
+    SetVolumeOutputValue("VTM", iPoint, Node_Turb->Get_VTM(iPoint));
+    SetVolumeOutputValue("FKH", iPoint, Node_Turb->Get_FKH(iPoint));
   }
-
+  }
   switch (config->GetKind_Species_Model()) {
 
     case SPECIES_MODEL::SPECIES_TRANSPORT: {
