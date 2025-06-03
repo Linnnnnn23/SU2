@@ -1585,7 +1585,7 @@ void CFlowOutput::LoadVolumeDataScalar(const CConfig* config, const CSolver* con
     if( config->GetKind_HybridRANSLES()==SA_EDDES) {
     SetVolumeOutputValue("VTM", iPoint, Node_Turb->GetVortex_Tilting(iPoint));
     SetVolumeOutputValue("VTM_Average", iPoint, Node_Turb->GetVTM_Average(iPoint));
-    SetVolumeOutputValue("FKH", iPoint, Node_Turb->Get_FKH(iPoint));
+    SetVolumeOutputValue("FKH", iPoint, Node_Turb->GetFKH_Average(iPoint));
   }
   }
   switch (config->GetKind_Species_Model()) {
