@@ -395,7 +395,7 @@ public:
    */
   inline virtual void SetDES_LengthScale(unsigned long iPoint, su2double val_des_lengthscale) {}
 
-  inline virtual void SetDebug_Quantities(CConfig, config, unsigned long iPoint, su2double val_VTM_Average, su2double val_FKH_Average) {}
+  inline virtual void SetDebug_Quantities(CConfig *config, unsigned long iPoint, su2double val_VTM_Average, su2double val_FKH_Average) {}
     
   inline virtual su2double GetVTM_Average(unsigned long iPoint) const { return 0.0;}
   inline virtual su2double GetFKH_Average(unsigned long iPoint) const { return 0.0;}
