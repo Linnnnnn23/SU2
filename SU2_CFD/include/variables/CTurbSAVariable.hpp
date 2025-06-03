@@ -41,7 +41,8 @@ class CTurbSAVariable final : public CTurbVariable {
 private:
   VectorType DES_LengthScale;
   VectorType Vortex_Tilting;
-
+  VectorType VTM;
+  VectorType FKH;
 public:
   /*!
    * \brief Constructor of the class.
