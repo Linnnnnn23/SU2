@@ -1509,7 +1509,7 @@ void CTurbSASolver::SetDES_LengthScale(CSolver **solver, CGeometry *geometry, CC
 
         const su2double distDES = constDES * maxDelta;
         lengthScale = wallDistance-f_d*max(0.0,(wallDistance-distDES));
-
+        nodes->SetDebug_Quantities(config,iPoint, vortexTiltingMeasure, f_kh);
         break;
       }
     }
