@@ -69,7 +69,7 @@ public:
   inline su2double GetDES_LengthScale(unsigned long iPoint) const override { return DES_LengthScale(iPoint); }
 
 
-  inline void SetDebug_Quantities(CConfig, *config, unsigned long iPoint, su2double val_VTM_Average, su2double val_FKH_Average) override{
+  inline void SetDebug_Quantities(CConfig *config, unsigned long iPoint, su2double val_VTM_Average, su2double val_FKH_Average) override{
     VTM_Average(iPoint) = val_VTM_Average;
     FKH_Average(iPoint) = val_FKH_Average;
   }
