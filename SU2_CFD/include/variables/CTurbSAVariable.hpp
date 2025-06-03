@@ -41,8 +41,8 @@ class CTurbSAVariable final : public CTurbVariable {
 private:
   VectorType DES_LengthScale;
   VectorType Vortex_Tilting;
-  VectorType VTM;
-  VectorType FKH;
+  VectorType VTM_Average;
+  VectorType FKH_Average;
 public:
   /*!
    * \brief Constructor of the class.
@@ -67,6 +67,17 @@ public:
    * \return Value of the DES length Scale.
    */
   inline su2double GetDES_LengthScale(unsigned long iPoint) const override { return DES_LengthScale(iPoint); }
+
+
+  inline void SetDebug_Quantities(CConfig, *config, unsigned long iPoint, su2double val_VTM_Average, su2double val_FKH_Average) override{
+    VTM_Average(iPoint) = val_VTM_Average;
+    FKH_Average(iPoint) = val_FKH_Average;
+  }
+    
+  inline su2double GetVTM_Average(unsigned long iPoint) const override { return VTM_Average(iPoint); }
+  inline su2double GetFKH_Average(unsigned long iPoint) const override { return FKH_Average(iPoint); }
+  
+
 
   /*!
    * \brief Set the DES Length Scale.
