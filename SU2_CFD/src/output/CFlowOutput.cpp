@@ -1479,7 +1479,7 @@ void CFlowOutput::SetVolumeOutputFieldsScalarMisc(const CConfig* config) {
   if( config->GetKind_HybridRANSLES()==SA_EDDES) {
     AddVolumeOutput("VTM", "VTM", "DDES", "vortexTiltingMeasure");
     AddVolumeOutput("VTM_Average","VTM_Average","DDES", "vortexTiltingMeasure_Average");
-    AddVolumeOutput("FKH", "FKH", "DDES", "fkh_VTM"); 
+    AddVolumeOutput("FKH_Average", "FKH_Average", "DDES", "fkh_VTM"); 
   }
   
   }
@@ -1585,7 +1585,7 @@ void CFlowOutput::LoadVolumeDataScalar(const CConfig* config, const CSolver* con
     if( config->GetKind_HybridRANSLES()==SA_EDDES) {
     SetVolumeOutputValue("VTM", iPoint, Node_Turb->GetVortex_Tilting(iPoint));
     SetVolumeOutputValue("VTM_Average", iPoint, Node_Turb->GetVTM_Average(iPoint));
-    SetVolumeOutputValue("FKH", iPoint, Node_Turb->GetFKH_Average(iPoint));
+    SetVolumeOutputValue("FKH_Average", iPoint, Node_Turb->GetFKH_Average(iPoint));
   }
   }
   switch (config->GetKind_Species_Model()) {
